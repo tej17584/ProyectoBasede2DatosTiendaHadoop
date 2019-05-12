@@ -1,5 +1,5 @@
 create database proyectobasededatos
-    with owner postgres;
+
 
 create table if not exists marca
 (
@@ -9,8 +9,7 @@ create table if not exists marca
     nombre  varchar(50)
 );
 
-alter table marca
-    owner to postgres;
+
 
 create table if not exists categoria
 (
@@ -21,8 +20,6 @@ create table if not exists categoria
     cantidad    integer
 );
 
-alter table categoria
-    owner to postgres;
 
 create table if not exists producto
 (
@@ -40,8 +37,7 @@ create table if not exists producto
             references categoria
 );
 
-alter table producto
-    owner to postgres;
+
 
 create table if not exists definicion_datos_custom
 (
@@ -52,8 +48,7 @@ create table if not exists definicion_datos_custom
     tipo               varchar(50)
 );
 
-alter table definicion_datos_custom
-    owner to postgres;
+
 
 create table if not exists datos_custom
 (
@@ -66,8 +61,7 @@ create table if not exists datos_custom
     valor              varchar(50)
 );
 
-alter table datos_custom
-    owner to postgres;
+
 
 create table if not exists cliente
 (
@@ -78,8 +72,6 @@ create table if not exists cliente
     "dirección" varchar(50)
 );
 
-alter table cliente
-    owner to postgres;
 
 create table if not exists factura
 (
@@ -93,8 +85,7 @@ create table if not exists factura
     hora       time        not null
 );
 
-alter table factura
-    owner to postgres;
+
 
 create table if not exists linea_factura
 (
@@ -109,8 +100,5 @@ create table if not exists linea_factura
             references producto,
     cantidadcomprada integer
 );
-
-alter table linea_factura
-    owner to postgres;
 
 
