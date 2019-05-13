@@ -23,7 +23,7 @@ app.on('ready',()=> {
         nodeIntegration:true
     }});
     mainWindow.loadURL(url.format({
-        pathname:path.join(__dirname,'views/Index.html'),
+        pathname:path.join(__dirname,'index.html'),
         protocol: 'file',
         slashes: true
     }));
@@ -52,7 +52,7 @@ function CrearnuevaVentana(){
     //NuevaVentana.setMenu(null);
     //llamamos a la ventadas
     NuevaVentana.loadURL(url.format({
-        pathname:path.join(__dirname,'views/NuevaVentana.html'),
+        pathname:path.join(__dirname,'generic.html'),
         protocol: 'file',
         slashes: true
     }));
