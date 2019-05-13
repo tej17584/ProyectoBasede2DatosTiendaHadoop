@@ -21,4 +21,9 @@ async function agregarProducto(id,nombre,cantidad,precio,marca,categoria){
     } catch (ex) {
         console.log("No se pudo agregar a la base de datos")
     }
+
+    async function agregarProductoTabla(){
+        await pool.connect().then(client =>{
+            client.query('SELECT id_producto, nombre, cantidad, preciounitario, id_marca, id_categoria FROM producto', [])
+    }
 }
