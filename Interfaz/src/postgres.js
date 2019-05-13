@@ -15,6 +15,7 @@ async function agregarProducto(id,nombre,cantidad,precio,marca,categoria){
             console.log("funciono")
             var query = "insert into producto(id_producto,nombre,cantidad,preciounitario,id_marca,id_categoria) values ($1,$2,$3,$4,$5,$6)";
             response2 = await pool.query(query,[id,nombre,cantidad,precio,marca,categoria]);
+            console.log("Producto ingresado con exito")
         }    
     } catch (error) {
         console.log("No se logro ingresar el producto, posiblmente el dato ya existe");
