@@ -1,6 +1,8 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <!--
-	Proyecto de base de datos para nuestra interfaz de tiendas
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
 
@@ -9,28 +11,27 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="postgres.js"></script>
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-
 </head>
 
 <body class="is-preload">
 	<!-- Wrapper -->
 	<div id="wrapper">
-
 		<!-- Header -->
 		<header id="header">
 			<div class="inner">
-
 				<!-- Logo -->
 				<a href="index.html" class="logo">
-					<span class="symbol"><img src="images/logoProyecto.svg" alt="" /></span><span class="title">Base de
-						Datos</span>
+					<span class="symbol"><img src="images/client.png" alt="" /></span><span class="title">Gestion de
+						Clientes</span>
 				</a>
 
 				<!-- Nav -->
@@ -39,7 +40,6 @@
 						<li><a href="#menu">Menu</a></li>
 					</ul>
 				</nav>
-
 			</div>
 		</header>
 
@@ -60,68 +60,39 @@
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
-				<header>
-					<h1>Proyecto Base de datos<br /></h1>
-					<h2>Una simulación de tiendas, hadoop, Hive, talend y un poquito de PostgresQL</h2>
-
-				</header>
-				<section class="tiles">
-					<article class="style1">
-						<span class="image">
-							<img src="images/products.png" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Ver Productos</h2>
-						</a>
-					</article>
-					<article class="style2">
-						<span class="image">
-							<img src="images/addProduct.png" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Agregar Producto</h2>
-
-						</a>
-					</article>
-					<article class="style3">
-						<span class="image">
-							<img src="images/client.png" alt="" />
-						</span>
-						<a href="GestionClientes.html">
-							<h2>Gestión Clientes</h2>
-
-						</a>
-					</article>
-					<article class="style4">
-						<span class="image">
-							<img src="images/simulateProduct.png" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Simular Ventas</h2>
-
-						</a>
-					</article>
-					<article class="style5">
-						<span class="image">
-							<img src="images/saleProduct.png" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Realizar Venta</h2>
-
-						</a>
-					</article>
-					<article class="style6">
-						<span class="image">
-							<img src="images/statics.png" alt="" />
-						</span>
-						<a href="generic.html">
-							<h2>Consultar Ventas</h2>
-
-						</a>
-					</article>
-				</section>
+				<h1>Clientes registrados</h1>
+				<br />
+				<h2>
+					Esta sección es para consultar a los clientes registrados en la base
+					de datos.
+				</h2>
+				<div class="table-wrapper">
+					<table class="alt" id="tablaClientes">
+						<thead>
+							<tr>
+								<th>DPI</th>
+								<th>Nombre</th>
+								<th>Dirección</th>
+							</tr>
+						</thead>
+						
+						
+					</table>
+					<br/>
+					<button onclick="Consultarcliente()">Cargar</button>
+				</div>
+			</div>
+			<br />
+			<div class="inner" id="RegistrarClientes">
+				<h1>Registrar un nuevo cliente</h1>
+				<br />
+				<h2>
+					En dado caso el cliente no exista, o quiera agregar uno nuevo, puede
+					ingresar un nuevo cliente en estos campos.
+				</h2>
 			</div>
 		</div>
+
 		<!-- Footer -->
 		<footer id="footer">
 			<div class="inner">
@@ -145,20 +116,28 @@
 					</form>
 				</section>
 				<section>
-					<h2>Follow</h2>
+					<h2>Redes sociales y Web</h2>
 					<ul class="icons">
-						<li><a href="https://twitter.com/uvggt" class="icon style2 fa-twitter"><span
-									class="label">Twitter</span></a></li>
-						<li><a href="https://www.facebook.com/universidaddelvallegt/"
-								class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="https://www.instagram.com/uvggt/?hl=es" class="icon style2 fa-instagram"><span
-									class="label">Instagram</span></a></li>
-						<li><a href="https://www.uvg.edu.gt/" class="icon style2 fa-dribbble"><span
-									class="label">Dribbble</span></a></li>
+						<li>
+							<a href="https://twitter.com/uvggt" class="icon style2 fa-twitter"><span
+									class="label">Twitter</span></a>
+						</li>
+						<li>
+							<a href="https://www.facebook.com/universidaddelvallegt/"
+								class="icon style2 fa-facebook"><span class="label">Facebook</span></a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/uvggt/?hl=es" class="icon style2 fa-instagram"><span
+									class="label">Instagram</span></a>
+						</li>
+						<li>
+							<a href="https://www.uvg.edu.gt/" class="icon style2 fa-dribbble"><span
+									class="label">Dribbble</span></a>
+						</li>
 					</ul>
 				</section>
 				<ul class="copyright">
-					<li>&copy; Proyecto base de Datos por: </li>
+					<li>&copy; Proyecto base de Datos por:</li>
 					<li>Alejandro Tejada</li>
 					<li>Diego Sevilla</li>
 					<li>Rodrigo Samayoa</li>
@@ -173,6 +152,7 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script src="postgres.js"></script>
 </body>
 
 </html>

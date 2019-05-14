@@ -2,8 +2,8 @@ var {Pool} = require('pg');
 
 var pool = new Pool({
     user: 'postgres',
-    password: 'andresumsql',
-    database: 'proyectobasededatos'
+    password: '123',
+    database: 'proyectodb2'
 });
 
 async function agregarProducto(id,nombre,cantidad,precio,marca,categoria){
@@ -37,6 +37,29 @@ async function agregarCliente(dpi,nombre,direccion){
     }
 }
 
+async function Consultarcliente() {
+    try {
+      var query = "select * from cliente";
+      var response = await pool.query(query);
+      var tableInicial = document.getElementById("tablaClientes");
+      for (let index = 0; index < response.rowCount; index++) {
+          const nuevaFilacliente = `
+          <tbody>
+          <tr>
+              <td>${response.rows[index].dpi}</td>
+              <td>${response.rows[index].nombre}</td>
+              <td>${response.rows[index].direccion}</td>
+          </tr>
+      </tbody>
+                  `;
+      //Colocamos el inner
+      tableInicial.innerHTML += nuevaFilacliente;
+          
+      }
+    } catch (error) {
+      console.log("No se pudo consultar");
+    }
+  }
 
 // try {
     //     var bandera = false;
