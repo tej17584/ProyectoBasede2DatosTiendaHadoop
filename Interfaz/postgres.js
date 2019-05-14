@@ -1,3 +1,10 @@
+var idproducto = document.getElementById("idproducto").value;
+var nombreproducto = document.getElementById("nombreproducto").value;
+var cantidad = document.getElementById("cantidad").value;
+var precio = document.getElementById("precio").value;
+var marca = document.getElementById("marca");
+var categoria = document.getElementById("categoria");
+
 var {Pool} = require('pg');
 
 var pool = new Pool({

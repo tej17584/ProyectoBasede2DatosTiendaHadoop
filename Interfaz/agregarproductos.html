@@ -58,51 +58,56 @@
 							<h1>Ingrese un producto nuevo</h1>
 						</div>
 					</div>
-				<!-- Footer -->
+                <!-- Footer -->
+                <section>
 					<form action="">
-                        <div class="wrap-input100 validate-input bg1" data-validate="Debe ingresar un id">
-                            <span class="label-input100">ID de producto</span>
-                            <input class="input100" id="idproducto" type="text" name="id" placeholder="Ingresar..">
-                        </div>
-                        <div class="wrap-input100 validate-input bg1" data-validate="Debe ingresar un producto">
-                            <span class="label-input100">Nombre de producto</span>
-                            <input class="input100" id="nproducto"type="text" name="nombre" placeholder="Ingresar..">
-                        </div>
-                        <div class="wrap-input100 validate-input bg1" data-validate="Debe ingresar una cantidad">
-                            <span class="label-input100">Cantidad de producto producto</span>
-                            <input class="input100" type="number" id="cantidad" name="cantidad" placeholder="0">
-                        </div>
-                        <div class="wrap-input100 validate-input bg1" data-validate="Debe ingresar precio unitario">
-                            <span class="label-input100">Precio unitario</span>
-                            <input class="input100" type="text" id="text" name="precio" size="7" placeholder="0.0">
-                        </div>
-                        
-                        <div class="wrap-input100 input100-select bg1">
-                            <span class="label-input100">ID Marca</span>
-                            <div>
-                                <select class="js-select2" name="marca" id="marca">
-                                    <option>Opciones</option>
-                                    <option>eCommerce Bussiness</option>
-                                    <option>UI/UX Design</option>
-                                    <option>Online Services</option>
-                                </select>
-                                <div class="dropDownSelect2"></div>
+                        <div class="fields">
+                            <div class="field" data-validate="Debe ingresar un id">
+                                <input class="input100" id="idproducto" type="text" name="id" placeholder="Id del producto">
                             </div>
-                        </div>
-                        
-                        <div class="wrap-input100 input100-select bg1">
-                            <span class="label-input100">ID categoria</span>
-                            <div>
-                                <select class="js-select2" name="categoria" id="categoria">
-                                    <option>Opciones</option>
-                                    <option>eCommerce Bussiness</option>
-                                    <option>UI/UX Design</option>
-                                    <option>Online Services</option>
-                                </select>
-                                <div class="dropDownSelect2"></div>
+                            <div class="field" data-validate="Debe ingresar un producto">
+                                <input class="input100" id="nombreproducto" type="text" name="nombre" placeholder="Nombre del producto">
                             </div>
-                        </div>
+                            <div class="field half" data-validate="Debe ingresar una cantidad">
+                                <span class="label-input100">Cantidad de producto producto</span>
+                                <input class="input100" type="number" id="cantidad" name="cantidad" placeholder="0" min="0">
+                            </div>
+                            <div class="field half" data-validate="Debe ingresar precio unitario">
+                                <span class="label-input100">Precio unitario</span>
+                                <input class="input100" type="number" step="0.01" id="precio" name="precio" min="0" placeholder="0.0">
+                            </div>
+                            
+                            <div class="field">
+                                <span class="label-input100">ID Marca</span>
+                                <div>
+                                    <select class="js-select2" name="marca" id="marca">
+                                        <option>Opciones</option>
+                                        <option>eCommerce Bussiness</option>
+                                        <option>UI/UX Design</option>
+                                        <option>Online Services</option>
+                                    </select>
+                                    <div class="dropDownSelect2"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="field">
+                                <span class="label-input100">ID categoria</span>
+                                <div>
+                                    <select class="js-select2" name="categoria" id="categoria">
+                                        <option>Opciones</option>
+                                        <option>eCommerce Bussiness</option>
+                                        <option>UI/UX Design</option>
+                                        <option>Online Services</option>
+                                    </select>
+                                    <div class="dropDownSelect2"></div>
+                                </div>
+                            </div>
+                    </div>
                     </form>
+                    <ul class="actions">
+                            <li><input type="submit" value="Enviar" class="primary" /></li>
+                        </ul>
+                </section>
 			</div>
 			<!-- Scripts -->
 				<script src="assets/js/jquery.min.js"></script>
