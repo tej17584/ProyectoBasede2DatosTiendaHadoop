@@ -22,6 +22,21 @@ async function agregarProducto(id,nombre,cantidad,precio,marca,categoria){
     }
 }
 
+//=================Metodo de Agregacion de Cliente============================================
+async function agregarCliente(dpi,nombre,direccion){
+    try {
+        var query = "select * from cliente where dpi = $1";
+        var response = await pool.query(query,[dpi]);
+        if (response.rowCount == 0){
+            var query = "insert into cliente(dpi,nombre,direccion) values ($1,$2,$3)";
+            response2 = await pool.query(query,[dpi,nombre,direccion]);
+            console.log("Cliente ingresado con exito");
+        }
+    } catch (error) {
+        console.log("No se logro ingresar el cliente, por el siguiente error"+error)
+    }
+}
+
 
 // try {
     //     var bandera = false;
