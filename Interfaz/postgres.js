@@ -61,6 +61,38 @@ async function Consultarcliente() {
     }
   }
 
+
+
+async function agregarProductosTabla()
+{
+    try {
+      var query = "select * from producto";
+        var response = await pool.query(query, []);
+        var cuenta = response.rowCount;
+        var div = document.getElementById("productos");
+        for (var i = 0; i = cuenta; i++)
+        { 
+            const dato =`
+                <tbody>
+                    <tr>
+                        <td>${response.rows[i].id_producto}</td>
+                        <td>${response.rows[i].nombre}</td>
+                        <td>${response.rows[i].cantidad}</td>
+                        <td>${response.rows[i].preciounitario}</td>
+                        <td>${response.rows[i].id_marca}</td>
+                        <td>${response.rows[i].id_categoria}</td>
+                    </tr>
+                </tbody>
+            `; 
+            div.innerHTML += dato;
+          }
+          }    
+    catch (error) 
+    {
+      console.log("No se logro agregar los productos a la tabla");
+    }   
+  }
+
 // try {
     //     var bandera = false;
     //     await pool.connect().then(client =>{
