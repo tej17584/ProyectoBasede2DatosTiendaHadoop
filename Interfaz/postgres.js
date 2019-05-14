@@ -1,10 +1,3 @@
-var idproducto = document.getElementById("idproducto").value;
-var nombreproducto = document.getElementById("nombreproducto").value;
-var cantidad = document.getElementById("cantidad").value;
-var precio = document.getElementById("precio").value;
-var marca = document.getElementById("marca");
-var categoria = document.getElementById("categoria");
-
 var {Pool} = require('pg');
 
 var pool = new Pool({
@@ -100,23 +93,3 @@ async function agregarProductosTabla()
     }   
   }
 
-// try {
-    //     var bandera = false;
-    //     await pool.connect().then(client =>{
-    //         client.query('select * from producto where id_producto = $1',[id]).then(res =>{
-    //             client.release()
-    //             // console.log(res.rows[0].id_producto)
-    //             if (res.rowCount == 0){
-    //                 bandera = true
-    //             }
-    //             if (bandera == true){
-                    
-    //             }
-    //         })
-    //     })
-    //     if (bandera == true){
-    //         console.log("Funciono")
-    //     }
-    // } catch (ex) {
-    //     console.log("No se pudo agregar a la base de datos")
-    // }

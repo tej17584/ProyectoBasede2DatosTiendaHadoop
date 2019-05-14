@@ -11,6 +11,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>
@@ -22,7 +23,7 @@
 		<link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
 
-<body class="is-preload">
+<body class="is-preload" onload="Consultarcliente()">
 	<!-- Wrapper -->
 	<div id="wrapper">
 		<!-- Header -->
@@ -62,10 +63,10 @@
 			<div class="inner">
 				<h1>Clientes registrados</h1>
 				<br />
-				<h2>
+				<h4>
 					Esta sección es para consultar a los clientes registrados en la base
 					de datos.
-				</h2>
+				</h4>
 				<div class="table-wrapper">
 					<table class="alt" id="tablaClientes">
 						<thead>
@@ -75,21 +76,42 @@
 								<th>Dirección</th>
 							</tr>
 						</thead>
-						
-						
 					</table>
-					<br/>
-					<button onclick="Consultarcliente()">Cargar</button>
+					<br />
+					<button onclick="Consultarcliente()">Refrescar</button>
 				</div>
 			</div>
+			<br />
+			<br />
+			<br />
 			<br />
 			<div class="inner" id="RegistrarClientes">
 				<h1>Registrar un nuevo cliente</h1>
 				<br />
-				<h2>
+				<h4>
 					En dado caso el cliente no exista, o quiera agregar uno nuevo, puede
 					ingresar un nuevo cliente en estos campos.
-				</h2>
+				</h4>
+				<br />
+				<br />
+				<!--acá comenzamos a colocar los datos del formulario-->
+				<form action="" method="post">
+					<div class="row gtr-uniform">
+						<div class="col-6 col-12-xsmall">
+							<input type="text"  id="DPICliente"  placeholder="DPI" />
+						</div>
+						<div class="col-6 col-12-xsmall">
+							<input type="text"  id="NombreCliente"  placeholder="Nombre Cliente" />
+						</div>
+						<div class="col-12">
+							<input type="text"  id="DireccionCliente"  placeholder="Dirección" />
+						</div>
+						<div>
+							<button type="submit" onclick="agregarCliente(document.getElementById('DPICliente').value,document.getElementById('NombreCliente').value,document.getElementById('DireccionCliente').value)" class="button icon fa-save">Guardar</button>
+						</div>
+					</div>
+
+				</form>
 			</div>
 		</div>
 
