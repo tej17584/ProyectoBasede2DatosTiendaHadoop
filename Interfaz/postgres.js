@@ -3,8 +3,8 @@ var randomstring = require("randomstring");
 
 var pool = new Pool({
   user: "postgres",
-  password: "123",
-  database: "proyectodb2"
+  password: "andresumsql",
+  database: "proyectobasededatos"
 });
 
 function generarID() {
@@ -258,4 +258,13 @@ async function LoadTablaDetalleFactura(
   } catch (error) {
     console.log("No se logro acumular datos" + error);
   }
+}
+async function generarFactura(id,dpi,fecha,hora){
+    try {
+        var query = "insert into factura(id_factura,dpi,fecha,hora) values ($1,$2,$3,$4)";
+        var response = await pool.query(query,[id,dpi,fecha,hora]);
+        console.log("Producto ingresado con exito");
+    } catch (error) {
+        console.log("Error"+error);
+    }
 }
