@@ -63,56 +63,83 @@
 				<h4>En caso quiera agregar un producto, hagalo acá.</h4>
 				<!-- Footer -->
 				<section>
-					
-						<div class="row gtr-uniform">
-							<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un id" id="idProducto">
-								<!-- <input type="text" class="input100" id="idProducto" value="" placeholder="ID Producto" /> -->
-							</div>
-							<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un Nombre Producto">
-								<input type="text" class="input100" id="nombreproducto" value=""
-									placeholder="Nombre Producto" />
-							</div>
-							<div class="col-6 col-12-xsmall" data-validate="Debe ingresar numero entero">
-								<span class="label-input100">Cantidad </span>
-								<br>
-								<input type="number" class="input100" id="cantidad" placeholder="0" name="cantidad"
-									min="0" />
-							</div>
-							<div class="col-6 col-12-xsmall" data-validate="Debe ingresar numero decimal">
-								<span class="label-input100">Precio Unitario </span>
-								<br>
-								<input type="number" class="input100" id="precio" placeholder="0.0" name="precio"
-									min="0" step="0.1" />
-							</div>
-							<div class="col-6 col-12-xsmall">
-								<span class="label-input100">Marca</span>
-								<select name="marcaProductoSelect" id="marcaProductoSelect">
-									<option value="">--</option>
-
-								</select>
-							</div>
-
-							<div class="col-6 col-12-xsmall">
-								<span class="label-input100">Categoría</span>
-								<select name="categoriaProductoSelect" id="categoriaProductoSelect">
-									<option value="">--</option>
-
-								</select>
-							</div>
-							<div>
-								<button type="submit"
-									onclick="prueba(document.getElementById('prod').value,
-									document.getElementById('nombreproducto').value,document.getElementById('cantidad').value,
-									document.getElementById('precio').value,document.getElementById('marcaProductoSelect').value,
-									document.getElementById('categoriaProductoSelect').value)"
-									class="button icon fa-save">Guardar Producto</button>
-							</div>
-
+						
+					<div class="row gtr-uniform">
+						<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un id" id="idProducto">
+							<!-- <input type="text" class="input100" id="idProducto" value="" placeholder="ID Producto" /> -->
 						</div>
-						<br>
-						<br>
+						<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un Nombre Producto">
+							<input type="text" class="input100" id="nombreproducto" value=""
+								placeholder="Nombre Producto" />
+						</div>
+						<div class="col-6 col-12-xsmall" data-validate="Debe ingresar numero entero">
+							<span class="label-input100">Cantidad </span>
+							<br>
+							<input type="number" class="input100" id="cantidad" placeholder="0" name="cantidad"
+								min="0" />
+						</div>
+						<div class="col-6 col-12-xsmall" data-validate="Debe ingresar numero decimal">
+							<span class="label-input100">Precio Unitario </span>
+							<br>
+							<input type="number" class="input100" id="precio" placeholder="0.0" name="precio" min="0"
+								step="0.1" />
+						</div>
+						<div class="col-6 col-12-xsmall">
+							<span class="label-input100">Marca</span>
+							<select name="marcaProductoSelect" id="marcaProductoSelect">
+								<option value="">--</option>
 
-					
+							</select>
+						</div>
+
+						<div class="col-6 col-12-xsmall">
+							<span class="label-input100">Categoría</span>
+							<select name="categoriaProductoSelect" id="categoriaProductoSelect">
+								<option value="">--</option>
+
+							</select>
+						</div>
+
+
+					</div>
+					<br>
+					<br>
+					<h4>Ingresa datos custom acá. Ingresa un dato custom y luego guardalo, el dato custom se guardará y
+						luego podrás ingresar otro.</h4>
+					<div class="row gtr-uniform">
+						<div class="col-3 col-12-xsmall" data-validate="Debe ingresar nombre para el Dato Custom">
+							<input type="text" class="input100" id="DCNombre" value=""
+								placeholder="Nombre Dato Custom" />
+						</div>
+						<div class="col-3 col-12-xsmall" data-validate="Seleccione un valor del combobox">
+							<select name="DCTipo" id="DCTipo">
+								<option value="">--</option>
+								<option value="Int">Int</option>
+								<option value="Double">Double</option>
+								<option value="String">String</option>
+							</select>
+						</div>
+						<div class="col-3 col-12-xsmall" data-validate="Debe ingresar un valor para el dato Custom">
+							<input type="text" class="input100" id="DCValor" value="" placeholder="Valor Dato Custom" />
+						</div>
+						<div class="col-3 col-12-xsmall" data-validate="Debe de guardarlo">
+							<button class="button small"
+								onclick="AgregarDatoCustom(document.getElementById('prod').value,document.getElementById('DCNombre').value,document.getElementById('DCTipo').value,document.getElementById('DCValor').value)">Guardar
+								Dato </button>
+						</div>
+					</div>
+					<br>
+					<br>
+					<form action="">
+							<div>
+									<button type="submit" onclick="agregarProducto(document.getElementById('prod').value,
+												document.getElementById('nombreproducto').value,document.getElementById('cantidad').value,
+												document.getElementById('precio').value,document.getElementById('marcaProductoSelect').value,
+												document.getElementById('categoriaProductoSelect').value)" class="button icon fa-save">Guardar
+										Producto</button>
+								</div>
+					</form>
+
 				</section>
 			</div>
 		</div>

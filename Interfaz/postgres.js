@@ -3,8 +3,8 @@ var randomstring = require("randomstring");
 
 var pool = new Pool({
     user: 'postgres',
-    password: 'andresumsql',
-    database: 'proyectobasededatos'
+    password: '123',
+    database: 'proyectodb2'
 });
 
 function generarID(){
@@ -86,8 +86,6 @@ async function Consultarcliente() {
     }
   }
 
-
-
 async function agregarProductosTabla()
 {
     try {
@@ -150,3 +148,31 @@ async function getCategoria(){
       generarID();
   }
 
+  async function AgregarDatoCustom(idProducto,NombreDatoCustom,TipoDatoCustom,ValorDatoCustom){
+      try {
+        var id_def_dato_custom = randomstring.generate(10);
+        var query = "select * from definicion_datos_custom where id_def_dato_custom = $1";
+        var response = await pool.query(query,[id_def_dato_custom]);
+        if (response.rowCount == 0){
+            var query = "insert into definicion_datos_custom(id_def_dato_custom,nombre,tipo) values ($1,$2,$3)";
+            response2 = await pool.query(query,[id_def_dato_custom,NombreDatoCustom,TipoDatoCustom]);
+            console.log("DefDatoCustom ingresado con exito");
+        }
+
+        var query = "select * from datos_custom where id_def_dato_custom = $1";
+        var response = await pool.query(query,[id_def_dato_custom]);
+        if (response.rowCount == 0){
+            var query = "insert into datos_custom(id_def_dato_custom,id_producto,valor) values ($1,$2,$3)";
+            response2 = await pool.query(query,[id_def_dato_custom,idProducto,ValorDatoCustom]);
+            console.log("Dato Custom Ingresado con exito ingresado con exito");
+        }
+
+
+      } catch (error) {
+          console.log("No se pudo agregar.")
+      }
+      document.getElementById('DCNombre').value = "";
+      document.getElementById('DCTipo').value = "";
+      document.getElementById('DCValor').value = "";
+    
+}
