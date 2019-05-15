@@ -3,20 +3,27 @@ var randomstring = require("randomstring");
 
 var pool = new Pool({
     user: 'postgres',
-    password: '123',
-    database: 'proyectodb2'
+    password: 'andresumsql',
+    database: 'proyectobasededatos'
 });
+
+function generarID(){
+    var id = randomstring.generate(10);
+    return id
+}
 
 async function agregarProducto(nombre,cantidad,precio,marca,categoria){
     try {
-        var id = randomstring.generate(10);
+        var id = document.getElementById("idProducto");
         var query = "select * from producto where id_producto = $1";
         var response = await pool.query(query,[id]);
         console.log(response.rows)
         if (response.rowCount == 0){
+            cant = parseInt(cantidad);
+            prec = parseFloat(precio);
             console.log("funciono")
             var query = "insert into producto(id_producto,nombre,cantidad,preciounitario,id_marca,id_categoria) values ($1,$2,$3,$4,$5,$6)";
-            response2 = await pool.query(query,[id,nombre,cantidad,precio,marca,categoria]);
+            response2 = await pool.query(query,[id,nombre,cant,prec,marca,categoria]);
             console.log("Producto ingresado con exito")
         }    
     } catch (error) {
