@@ -22,7 +22,7 @@
 		<link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
 
-<body class="is-preload">
+<body class="is-preload" onload="LlenarComboboxProductos()">
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -83,25 +83,33 @@
 							<br>
 							<input type="time" class="input100" id="hora" />
 						</div>
-						<div class="col-6 col-12-xsmall">
+						<div class="col-5 col-12-xsmall">
 							<span class="label-input100">Elegir Producto</span>
-							<select name="ProductoSelect" id="productosFactura">
+							<select name="ProductoSelect" id="productosFacturaCombobox">
 								<option value="">--</option>
 
 							</select>
 						</div>
-						<div class="col-6 col-12-xsmall">
-							<button class="button">Agregar Producto a Factura</button>
+						<div class="col-3 col-12-xsmall" data-validate="Debe ingresar numero entero">
+							<span class="label-input100">Cantidad </span>
+							<br>
+							<input type="number" class="input100" id="cantidadProducto" placeholder="0" name="cantidad"
+								min="0" />
+						</div>
+						<div class="col-3 col-12-xsmall">
+							<button class="button"
+								onclick="LoadTablaDetalleFactura(document.getElementById('productosFacturaCombobox').value,document.getElementById('cantidadProducto').value,document.getElementById('IdFactura').value)">Agregar
+								Producto</button>
 						</div>
 					</div>
 					<br>
 					<br>
 					<h4>
-							Datos que lleva tu factura.
-						</h4>
-						<br>
+						Datos que lleva tu factura.
+					</h4>
+					<br>
 					<div class="row gtr-uniform">
-						
+
 						<div class="table-wrapper">
 							<table class="alt" id="tabladetalleFactura">
 								<thead>
@@ -112,12 +120,16 @@
 										<th>Precio Unitario</th>
 									</tr>
 								</thead>
-								<tfoot id="resultadoSuma">
-										
-									</tfoot>
+
 							</table>
 							<br />
 
+						</div>
+					</div>
+					<div class="row gtr-uniform">
+						<div class="col-3 col-12-xsmall">
+							<span>Total</span>
+							<input type="text" class="input100" placeholder="" id="TotalFactura" readonly />
 						</div>
 					</div>
 
