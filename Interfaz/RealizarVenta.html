@@ -66,20 +66,46 @@
 				<h4>En caso quiera realizar una venta y generar factura, hagalo acá</h4>
 				<section>
 					<div class="row gtr-uniform">
+							<div class="col-6 col-12-xsmall" id="idFactura">
+									<!-- <input type="text" class="input100" id="idProducto" value="" placeholder="ID Producto" /> -->
+								</div>
 							<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un DPI">
 								<input type="text" class="input100" id="DPI" value=""
 									placeholder="DPI" />
 							</div>
 							<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un Fecha">
+								<span class="label-input100">Fecha de venta </span>
+								<br>	
 								<input type="date" class="input100" id="fecha" min="2019-05-31" />
 							</div>
-							<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un Fecha">
+							<div class="col-6 col-12-xsmall" data-validate="Debe ingresar una hora">
+								<span class="label-input100">Hora de venta </span>
 								<br>
-								<input type="time" class="input100" id="fecha" min="2019-05-31" />
+								<input type="time" class="input100" id="hora"/>
 							</div>
 							<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un IDtienda">
 									<input type="text" class="input100" id="fecha" min="2019-05-31" placeholder="ID de tienda"/>
 							</div>
+							<div class="col-6 col-12-xsmall">
+									<span class="label-input100">Elegir Producto</span>
+									<select name="ProductoSelect" id="productosFactura">
+										<option value="">--</option>
+		
+									</select>
+							</div>
+							<div class="col-6 col-12-xsmall">
+								<span class="label-input100">Datos de factura</span>
+								<textarea name="datosfactura" id="datosfactura"></textarea>
+							</div>
+					</div>
+					<br>
+					<br>
+					<div>
+						<br>
+						<br>
+						<button type="submit">
+							Generar factura
+						</button>
 					</div>
 				</section>
 			</div>
