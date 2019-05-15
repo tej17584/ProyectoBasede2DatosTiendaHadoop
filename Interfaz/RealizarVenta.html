@@ -11,7 +11,6 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/browser.min.js"></script>
@@ -64,7 +63,25 @@
 		<div id="main">
 			<div class="inner">
 				<h1>Realizar Venta</h1>
-				
+				<h4>En caso quiera realizar una venta y generar factura, hagalo acá</h4>
+				<section>
+					<div class="row gtr-uniform">
+							<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un DPI">
+								<input type="text" class="input100" id="DPI" value=""
+									placeholder="DPI" />
+							</div>
+							<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un Fecha">
+								<input type="date" class="input100" id="fecha" min="2019-05-31" />
+							</div>
+							<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un Fecha">
+								<br>
+								<input type="time" class="input100" id="fecha" min="2019-05-31" />
+							</div>
+							<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un IDtienda">
+									<input type="text" class="input100" id="fecha" min="2019-05-31" placeholder="ID de tienda"/>
+							</div>
+					</div>
+				</section>
 			</div>
 		</div>
 
