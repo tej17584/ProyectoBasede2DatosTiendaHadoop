@@ -9,12 +9,22 @@ var pool = new Pool({
 
 function generarID(){
     var id = randomstring.generate(10);
-    return id
+    prod = document.getElementById("idProducto");
+    const idinput = `<input type="text" class="input100" value="${id}" placeholder="ID Producto" id="prod" readonly/> `;
+    prod.innerHTML = idinput;
 }
 
-async function agregarProducto(nombre,cantidad,precio,marca,categoria){
+function prueba(id,nombre,cantidad,precio,marca,categoria){
+    console.log(id+","+typeof id);
+    console.log(nombre+","+typeof id);
+    console.log(cantidad+","+typeof id);
+    console.log(precio+","+typeof id);
+    console.log(marca+","+typeof id);
+    console.log(categoria+","+typeof id);
+}
+
+async function agregarProducto(id,nombre,cantidad,precio,marca,categoria){
     try {
-        var id = document.getElementById("idProducto");
         var query = "select * from producto where id_producto = $1";
         var response = await pool.query(query,[id]);
         console.log(response.rows)
@@ -131,5 +141,6 @@ async function getCategoria(){
   function combobox(){
       getCategoria();
       getMarca();
+      generarID();
   }
 

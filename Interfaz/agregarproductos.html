@@ -63,10 +63,10 @@
 				<h4>En caso quiera agregar un producto, hagalo acá.</h4>
 				<!-- Footer -->
 				<section>
-					<form method="post">
+					
 						<div class="row gtr-uniform">
-							<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un id">
-								<input type="text" class="input100" id="id" value="" placeholder="ID Producto" />
+							<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un id" id="idProducto">
+								<!-- <input type="text" class="input100" id="idProducto" value="" placeholder="ID Producto" /> -->
 							</div>
 							<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un Nombre Producto">
 								<input type="text" class="input100" id="nombreproducto" value=""
@@ -101,7 +101,10 @@
 							</div>
 							<div>
 								<button type="submit"
-									
+									onclick="prueba(document.getElementById('prod').value,
+									document.getElementById('nombreproducto').value,document.getElementById('cantidad').value,
+									document.getElementById('precio').value,document.getElementById('marcaProductoSelect').value,
+									document.getElementById('categoriaProductoSelect').value)"
 									class="button icon fa-save">Guardar Producto</button>
 							</div>
 
@@ -109,7 +112,7 @@
 						<br>
 						<br>
 
-					</form>
+					
 				</section>
 			</div>
 		</div>
