@@ -95,7 +95,7 @@ async function agregarProductosTabla()
     }   
   }
 
-  var gCatergoria = document.getElementById("categoria");
+  var gCategoria = document.getElementById("categoria");
   var gmarca = document.getElementById("marca");
 
 
@@ -107,7 +107,8 @@ async function getCategoria(){
     var query = "select idcategoria from categoria";
     var response = await pool.query(query);
     for(var i=0; i<response.rowCount; i++){
-        gcategoria.innerHTML+=`${comboboxCategoria(response.rows[i].idcategoria)}`;
+        var prueba =  response.rows[i].idcategoria;
+        gCategoria.innerHTML+=`${comboboxCategoria(prueba)}`;
     }
   }
 
@@ -115,7 +116,8 @@ async function getCategoria(){
     var query = "select idmarca from marca";
     var response = await pool.query(query);
     for(var i=0; i<response.rowCount; i++){
-        gmarca.innerHTML+=`${comboboxCategoria(response.rows[i].idmarca)}`;
+        var prueba = response.rows[i].idmarca;
+        gmarca.innerHTML+=`${comboboxCategoria(prueba)}`;
     }
   }
   function combobox(){
