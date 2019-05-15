@@ -69,10 +69,10 @@ async function agregarProductosTabla()
 {
     try {
       var query = "select * from producto";
-        var response = await pool.query(query, []);
+        var response = await pool.query(query);
         var cuenta = response.rowCount;
         var div = document.getElementById("productos");
-        for (var i = 0; i = cuenta; i++)
+        for (var i = 0; i < cuenta; i++)
         { 
             const dato =`
                 <tbody>
@@ -95,29 +95,30 @@ async function agregarProductosTabla()
     }   
   }
 
-  var gCategoria = document.getElementById("categoria");
-  var gmarca = document.getElementById("marca");
-
-
-function comboboxCategoria(valor){
-    return `<option>${valor}</option>`
-}
 
 async function getCategoria(){
-    var query = "select idcategoria from categoria";
+    var query = "select * from categoria";   
+    var gCategoria = document.getElementById("categoriaProductoSelect");
     var response = await pool.query(query);
     for(var i=0; i<response.rowCount; i++){
-        var prueba =  response.rows[i].idcategoria;
-        gCategoria.innerHTML+=`${comboboxCategoria(prueba)}`;
+        const nuevaFilaComboboxCategoria = `
+        <option value="${response.rows[i].nombre}">${response.rows[i].nombre}</option>
+                `;
+    //Colocamos el inner
+    gCategoria.innerHTML += nuevaFilaComboboxCategoria;
     }
   }
 
   async function getMarca(){
-    var query = "select idmarca from marca";
+    var query = "select * from marca";
+    var gmarca = document.getElementById("marcaProductoSelect");
     var response = await pool.query(query);
     for(var i=0; i<response.rowCount; i++){
-        var prueba = response.rows[i].idmarca;
-        gmarca.innerHTML+=`${comboboxCategoria(prueba)}`;
+        const nuevaFilaComboboxMarca = `
+        <option value="${response.rows[i].nombre}">${response.rows[i].nombre}</option>
+                `;
+    //Colocamos el inner
+    gmarca.innerHTML += nuevaFilaComboboxMarca;
     }
   }
   function combobox(){

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <!--
 	Phantom by HTML5 UP
 	html5up.net | @ajlkn
@@ -23,16 +23,17 @@
 		<link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
 
-<body class="is-preload" onload="Consultarcliente()">
+<body class="is-preload">
 	<!-- Wrapper -->
 	<div id="wrapper">
+
 		<!-- Header -->
 		<header id="header">
 			<div class="inner">
+
 				<!-- Logo -->
 				<a href="index.html" class="logo">
-					<span class="symbol"><img src="images/client.png" alt="" /></span><span class="title">Gestion de
-						Clientes</span>
+					<span class="symbol"><img src="images/saleProduct.png" alt="" /></span><span class="title">Ventas</span>
 				</a>
 
 				<!-- Nav -->
@@ -41,6 +42,7 @@
 						<li><a href="#menu">Menu</a></li>
 					</ul>
 				</nav>
+
 			</div>
 		</header>
 
@@ -50,7 +52,7 @@
 			<ul>
 				<li><a href="index.html">Home</a></li>
 				<li><a href="generic.html">Ver Productos</a></li>
-				<li><a href="generic.html">Agregar Producto</a></li>
+				<li><a href="agregarproductos.html">Agregar Producto</a></li>
 				<li><a href="RealizarVenta.html">Realizar Venta</a></li>
 				<li><a href="generic.html">Simular ventas</a></li>
 				<li><a href="elements.html">Consultar ventas</a></li>
@@ -61,57 +63,8 @@
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
-				<h1>Clientes registrados</h1>
-				<br />
-				<h4>
-					Esta sección es para consultar a los clientes registrados en la base
-					de datos.
-				</h4>
-				<div class="table-wrapper">
-					<table class="alt" id="tablaClientes">
-						<thead>
-							<tr>
-								<th>DPI</th>
-								<th>Nombre</th>
-								<th>Dirección</th>
-							</tr>
-						</thead>
-					</table>
-					<br />
-					
-				</div>
-			</div>
-			<br />
-			<br />
-			<br />
-			<br />
-			<div class="inner" id="RegistrarClientes">
-				<h1>Registrar un nuevo cliente</h1>
-				<br />
-				<h4>
-					En dado caso el cliente no exista, o quiera agregar uno nuevo, puede
-					ingresar un nuevo cliente en estos campos.
-				</h4>
-				<br />
-				<br />
-				<!--acá comenzamos a colocar los datos del formulario-->
-				<form action="" method="post">
-					<div class="row gtr-uniform">
-						<div class="col-6 col-12-xsmall">
-							<input type="text"  id="DPICliente"  placeholder="DPI" />
-						</div>
-						<div class="col-6 col-12-xsmall">
-							<input type="text"  id="NombreCliente"  placeholder="Nombre Cliente" />
-						</div>
-						<div class="col-12">
-							<input type="text"  id="DireccionCliente"  placeholder="Dirección" />
-						</div>
-						<div>
-							<button type="submit" onclick="agregarCliente(document.getElementById('DPICliente').value,document.getElementById('NombreCliente').value,document.getElementById('DireccionCliente').value)" class="button icon fa-save">Guardar</button>
-						</div>
-					</div>
-
-				</form>
+				<h1>Realizar Venta</h1>
+				
 			</div>
 		</div>
 
@@ -167,6 +120,7 @@
 				</ul>
 			</div>
 		</footer>
+
 	</div>
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
@@ -174,7 +128,6 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
-	<script src="postgres.js"></script>
 </body>
 
 </html>
