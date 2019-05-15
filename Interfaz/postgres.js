@@ -1,4 +1,5 @@
 var {Pool} = require('pg');
+var randomstring = require("randomstring");
 
 var pool = new Pool({
     user: 'postgres',
@@ -6,8 +7,9 @@ var pool = new Pool({
     database: 'proyectodb2'
 });
 
-async function agregarProducto(id,nombre,cantidad,precio,marca,categoria){
+async function agregarProducto(nombre,cantidad,precio,marca,categoria){
     try {
+        var id = randomstring.generate(10);
         var query = "select * from producto where id_producto = $1";
         var response = await pool.query(query,[id]);
         console.log(response.rows)
@@ -91,5 +93,33 @@ async function agregarProductosTabla()
     {
       console.log("No se logro agregar los productos a la tabla");
     }   
+  }
+
+  var gCatergoria = document.getElementById("categoria");
+  var gmarca = document.getElementById("marca");
+
+
+function comboboxCategoria(valor){
+    return `<option>${valor}</option>`
+}
+
+async function getCategoria(){
+    var query = "select idcategoria from categoria";
+    var response = await pool.query(query);
+    for(var i=0; i<response.rowCount; i++){
+        gcategoria.innerHTML+=`${comboboxCategoria(response.rows[i].idcategoria)}`;
+    }
+  }
+
+  async function getMarca(){
+    var query = "select idmarca from marca";
+    var response = await pool.query(query);
+    for(var i=0; i<response.rowCount; i++){
+        gmarca.innerHTML+=`${comboboxCategoria(response.rows[i].idmarca)}`;
+    }
+  }
+  function combobox(){
+      getCategoria();
+      getMarca();
   }
 
