@@ -29,11 +29,17 @@ async function agregarProducto(id,nombre,cantidad,precio,marca,categoria){
         var response = await pool.query(query,[id]);
         console.log(response.rows)
         if (response.rowCount == 0){
-            cant = parseInt(cantidad);
-            prec = parseFloat(precio);
+            var query = "select idmarca from marca where nombre = $1";
+            var response3 = await pool.query(query,[marca]);
+            var marc = response3.rows[0].idmarca;
+            var query = "select idcategoria from categoria where nombre = $1";
+            var response4 = await pool.query(query,[categoria]);
+            var cat = response4.rows[0].idcategoria;
+            var cant = parseInt(cantidad);
+            var prec = parseFloat(precio);
             console.log("funciono")
             var query = "insert into producto(id_producto,nombre,cantidad,preciounitario,id_marca,id_categoria) values ($1,$2,$3,$4,$5,$6)";
-            response2 = await pool.query(query,[id,nombre,cant,prec,marca,categoria]);
+            response2 = await pool.query(query,[id,nombre,cant,prec,marc,cat]);
             console.log("Producto ingresado con exito")
         }    
     } catch (error) {
