@@ -293,3 +293,16 @@ async function generarProductos(){
       console.log("Error no se pueden agregar los productos"+error);
   }
 }
+async function generarClientes(){
+  try {
+      clientes = Math.floor(Math.random()*50);
+      for(var i=0;i<=clientes;i++){
+          var dpi =  faker.random.number();
+          var nombre  = faker.name.findName();
+          var direccion = faker.address.streetAddress();
+          agregarCliente(dpi,nombre,direccion);
+      }
+  } catch (error) {
+      console.log("Error"+error);
+  }
+}
