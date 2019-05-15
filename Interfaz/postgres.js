@@ -1,5 +1,6 @@
 var { Pool } = require("pg");
 var randomstring = require("randomstring");
+const faker = require('faker');
 
 var pool = new Pool({
   user: "postgres",
@@ -267,4 +268,28 @@ async function generarFactura(id,dpi,fecha,hora){
     } catch (error) {
         console.log("Error"+error);
     }
+}
+//========= Generador de productos aleatorios =================
+async function generarProductos(){
+  try {
+      productos = Math.floor(Math.random()*100);
+      for(var i=0;i<=productos;i++){
+          var nombre = faker.lorem.words();
+          var id = randomstring.generate(10);
+          var cantidad = Math.floor(Math.random()*10000);
+          var precio = Math.floor(Math.random()*100);
+          var query = "select idcategoria from categoria";
+          var response = await pool.query(query);
+          var valor = Math.floor(Math.random()*response.rowCount);
+          var categoria = response.rows[valor].idcategoria;
+          query = "select idmarca from marca";
+          var response2 = await pool.query(query);
+          var valor2 = Math.floor(Math.random()*response2.rowCount);
+          var marca = response2.rows[valor2].idmarca;
+          query = "insert into producto(id_producto,nombre,cantidad,preciounitario,id_marca,id_categoria) values ($1,$2,$3,$4,$5,$6)";
+          response2 = await pool.query(query,[id,nombre,cantidad,precio,marca,categoria]);
+      }
+  } catch (error) {
+      console.log("Error no se pueden agregar los productos"+error);
+  }
 }
