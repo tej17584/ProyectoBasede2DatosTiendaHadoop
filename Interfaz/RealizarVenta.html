@@ -1,8 +1,6 @@
 <!DOCTYPE HTML>
 <!--
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Proyecto de base de datos para nuestra interfaz de tiendas
 -->
 <html>
 
@@ -46,20 +44,20 @@
 			</div>
 		</header>
 
+
 		<!-- Menu -->
 		<nav id="menu">
 			<h2>Menu</h2>
 			<ul>
 				<li><a href="index.html">Home</a></li>
-				<li><a href="generic.html">Ver Productos</a></li>
+				<li><a href="VerProducto.html">Ver Productos</a></li>
 				<li><a href="agregarproductos.html">Agregar Producto</a></li>
 				<li><a href="RealizarVenta.html">Realizar Venta</a></li>
 				<li><a href="generic.html">Simular ventas</a></li>
-				<li><a href="elements.html">Consultar ventas</a></li>
+				<li><a href="VerVentas.html">Consultar ventas</a></li>
 				<li><a href="GestionClientes.html">Gestionar Clientes</a></li>
 			</ul>
 		</nav>
-
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
@@ -138,10 +136,13 @@
 					<div>
 						<br>
 						<br>
-						<button type="submit" onclick="generarFactura(document.getElementById('IdFactura').value,
+						<form>
+							<button type="submit"
+								onclick="generarFactura(document.getElementById('IdFactura').value,
 								document.getElementById('DPI').value,document.getElementById('fecha').value,document.getElementById('hora').value)">
-							Generar factura
-						</button>
+								Generar factura
+							</button>
+						</form>
 					</div>
 				</section>
 			</div>

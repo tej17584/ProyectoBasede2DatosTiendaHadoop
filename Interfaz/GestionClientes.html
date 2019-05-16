@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <!--
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Proyecto de base de datos para nuestra interfaz de tiendas
 -->
 <html>
 
@@ -43,20 +41,19 @@
 				</nav>
 			</div>
 		</header>
-
 		<!-- Menu -->
 		<nav id="menu">
-				<h2>Menu</h2>
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="VerProducto.html">Ver Productos</a></li>
-					<li><a href="agregarproductos.html">Agregar Producto</a></li>
-					<li><a href="RealizarVenta.html">Realizar Venta</a></li>
-					<li><a href="generic.html">Simular ventas</a></li>
-					<li><a href="elements.html">Consultar ventas</a></li>
-					<li><a href="GestionClientes.html">Gestionar Clientes</a></li>
-				</ul>
-			</nav>
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="VerProducto.html">Ver Productos</a></li>
+				<li><a href="agregarproductos.html">Agregar Producto</a></li>
+				<li><a href="RealizarVenta.html">Realizar Venta</a></li>
+				<li><a href="generic.html">Simular ventas</a></li>
+				<li><a href="VerVentas.html">Consultar ventas</a></li>
+				<li><a href="GestionClientes.html">Gestionar Clientes</a></li>
+			</ul>
+		</nav>
 
 		<!-- Main -->
 		<div id="main">
@@ -78,7 +75,7 @@
 						</thead>
 					</table>
 					<br />
-					
+
 				</div>
 			</div>
 			<br />
@@ -98,16 +95,18 @@
 				<form action="" method="post">
 					<div class="row gtr-uniform">
 						<div class="col-6 col-12-xsmall">
-							<input type="text"  id="DPICliente"  placeholder="DPI" />
+							<input type="text" id="DPICliente" placeholder="DPI" />
 						</div>
 						<div class="col-6 col-12-xsmall">
-							<input type="text"  id="NombreCliente"  placeholder="Nombre Cliente" />
+							<input type="text" id="NombreCliente" placeholder="Nombre Cliente" />
 						</div>
 						<div class="col-12">
-							<input type="text"  id="DireccionCliente"  placeholder="Dirección" />
+							<input type="text" id="DireccionCliente" placeholder="Dirección" />
 						</div>
 						<div>
-							<button type="submit" onclick="agregarCliente(document.getElementById('DPICliente').value,document.getElementById('NombreCliente').value,document.getElementById('DireccionCliente').value)" class="button icon fa-save">Guardar</button>
+							<button type="submit"
+								onclick="agregarCliente(document.getElementById('DPICliente').value,document.getElementById('NombreCliente').value,document.getElementById('DireccionCliente').value)"
+								class="button icon fa-save">Guardar</button>
 						</div>
 					</div>
 

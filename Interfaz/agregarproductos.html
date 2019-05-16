@@ -1,8 +1,6 @@
 <!DOCTYPE HTML>
 <!--
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Proyecto de base de datos para nuestra interfaz de tiendas
 -->
 <html>
 
@@ -43,19 +41,19 @@
 			</div>
 		</header>
 
-		<<!-- Menu -->
+		<!-- Menu -->
 		<nav id="menu">
-				<h2>Menu</h2>
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="VerProducto.html">Ver Productos</a></li>
-					<li><a href="agregarproductos.html">Agregar Producto</a></li>
-					<li><a href="RealizarVenta.html">Realizar Venta</a></li>
-					<li><a href="generic.html">Simular ventas</a></li>
-					<li><a href="elements.html">Consultar ventas</a></li>
-					<li><a href="GestionClientes.html">Gestionar Clientes</a></li>
-				</ul>
-			</nav>
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="VerProducto.html">Ver Productos</a></li>
+				<li><a href="agregarproductos.html">Agregar Producto</a></li>
+				<li><a href="RealizarVenta.html">Realizar Venta</a></li>
+				<li><a href="generic.html">Simular ventas</a></li>
+				<li><a href="VerVentas.html">Consultar ventas</a></li>
+				<li><a href="GestionClientes.html">Gestionar Clientes</a></li>
+			</ul>
+		</nav>
 
 		<!-- Main -->
 		<div id="main">
@@ -64,7 +62,7 @@
 				<h4>En caso quiera agregar un producto, hagalo acá.</h4>
 				<!-- Footer -->
 				<section>
-						
+
 					<div class="row gtr-uniform">
 						<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un id" id="idProducto">
 							<!-- <input type="text" class="input100" id="idProducto" value="" placeholder="ID Producto" /> -->
@@ -132,13 +130,13 @@
 					<br>
 					<br>
 					<form action="">
-							<div>
-									<button type="submit" onclick="agregarProducto(document.getElementById('prod').value,
+						<div>
+							<button type="submit" onclick="agregarProducto(document.getElementById('prod').value,
 												document.getElementById('nombreproducto').value,document.getElementById('cantidad').value,
 												document.getElementById('precio').value,document.getElementById('marcaProductoSelect').value,
 												document.getElementById('categoriaProductoSelect').value)" class="button icon fa-save">Guardar
-										Producto</button>
-								</div>
+								Producto</button>
+						</div>
 					</form>
 
 				</section>
