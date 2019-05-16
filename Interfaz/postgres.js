@@ -2,24 +2,25 @@ var { Pool } = require("pg");
 var randomstring = require("randomstring");
 const faker = require('faker');
 
+
 var pool = new Pool({
   user: "postgres",
-  password: "andresumsql",
-  database: "proyectobasededatos"
+  password: "123",
+  database: "proyectodb2"
 });
 
 function generarID() {
   var id = randomstring.generate(10);
   prod = document.getElementById("idProducto");
   const idinput = `<input type="text" class="input100" value="${id}" placeholder="ID Producto" id="prod" readonly/> `;
-  prod.innerHTML = idinput;
+  prod.innerHTML += idinput;
 }
 
 function generarIDFactura() {
   var idFactura = randomstring.generate(10);
   prod = document.getElementById("idFactura");
   const idinput = `<input type="text" class="input100" value="${idFactura}" placeholder="ID Factura" id="IdFactura" readonly/> `;
-  prod.innerHTML = idinput;
+  prod.innerHTML += idinput;
 }
 
 function prueba(id, nombre, cantidad, precio, marca, categoria) {
@@ -262,6 +263,7 @@ async function LoadTablaDetalleFactura(
 }
 async function generarFactura(id,dpi,fecha,hora){
     try {
+        console.log(id,dpi,fecha,hora);
         var query = "insert into factura(id_factura,dpi,fecha,hora) values ($1,$2,$3,$4)";
         var response = await pool.query(query,[id,dpi,fecha,hora]);
         console.log("Producto ingresado con exito");
@@ -308,6 +310,7 @@ async function generarClientes(){
       console.log("Error"+error);
   }
 }
+
 async function randomFactura(fecha){
   try {
     if(fecha!=""){
@@ -328,7 +331,7 @@ async function randomFactura(fecha){
               response2 = await pool.query(query);
               num = Math.floor(Math.random()*response2.rowCount);
               var producto = response2.rows[num].id_producto;
-              query = "insert into linea_factura(id_factura,id_producto,cantidadcomprada) values ($1,$2,$3)"
+              query = "insert into linea_factura(id_factura,id_producto,cantidadcomprada) values ($1,$2,$3)";
               response3 = await pool.query(query,[id,producto,cantidad]);
           }
           console.log('exito id ingresado'+id);
