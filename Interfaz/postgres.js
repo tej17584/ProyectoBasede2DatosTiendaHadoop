@@ -352,7 +352,8 @@ async function randomFactura(fecha){
   try {
     if(fecha!=""){
       factura = Math.floor(Math.random()*100);
-      for(var i=0;i<=factura;i++){
+      console.log(factura);
+      for(var i=0;i<factura;i++){
           var id = randomstring.generate(10);
           var query = "select dpi from cliente";
           var response = await pool.query(query);
@@ -361,7 +362,7 @@ async function randomFactura(fecha){
           var hora = String(faker.date.recent()).substring(16,24);
           generarFactura(id,dpi,fecha,hora);
           // query = "insert into factura(id_factura,dpi,fecha,hora) values ($1,$2,$3,$4)"
-          var cantProductos = Math.floor(Math.random()*70);
+          var cantProductos = Math.floor(Math.random()*50);
           for(var j=0;j<=cantProductos;j++){
               query = ("select id_producto from producto");
               var cantidad = Math.floor(Math.random()*15);
