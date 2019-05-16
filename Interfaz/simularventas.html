@@ -66,12 +66,15 @@
 				<section>
 						
 					<div class="row gtr-uniform">
-						<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un id" id="idProducto">
-							<!-- <input type="text" class="input100" id="idProducto" value="" placeholder="ID Producto" /> -->
+						<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un id">
+                                <span class="label-input100">Fecha de venta </span>
+                                <br>
+                                <input type="date" class="input100" id="fechasimulada" min="2019-05-01" />
 						</div>
 						<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un Nombre Producto">
-							<input type="text" class="input100" id="nombreproducto" value=""
-								placeholder="Nombre Producto" />
+							<button class="button small"
+								onclick="randomFactura(document.getElementById('fechasimulada'))">Simular Venta
+								Dato </button>
 						</div>
 						<div class="col-6 col-12-xsmall" data-validate="Debe ingresar numero entero">
 							<span class="label-input100">Cantidad </span>
