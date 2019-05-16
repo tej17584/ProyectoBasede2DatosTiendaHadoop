@@ -4,8 +4,8 @@ const faker = require('faker');
 
 var pool = new Pool({
   user: "postgres",
-  password: "123",
-  database: "proyectodb2"
+  password: "andresumsql",
+  database: "proyectobasededatos"
 });
 
 function generarID() {
@@ -288,6 +288,7 @@ async function generarProductos(){
           var marca = response2.rows[valor2].idmarca;
           query = "insert into producto(id_producto,nombre,cantidad,preciounitario,id_marca,id_categoria) values ($1,$2,$3,$4,$5,$6)";
           response2 = await pool.query(query,[id,nombre,cantidad,precio,marca,categoria]);
+          console.log("Producto agregado"+nombre);
       }
   } catch (error) {
       console.log("Error no se pueden agregar los productos"+error);
@@ -301,6 +302,7 @@ async function generarClientes(){
           var nombre  = faker.name.findName();
           var direccion = faker.address.streetAddress();
           agregarCliente(dpi,nombre,direccion);
+          console.log("cliente agregado con exito"+dpi);
       }
   } catch (error) {
       console.log("Error"+error);
