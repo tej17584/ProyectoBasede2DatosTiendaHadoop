@@ -306,3 +306,31 @@ async function generarClientes(){
       console.log("Error"+error);
   }
 }
+async function randomFactura(fecha){
+  try {
+      factura = Math.floor(Math.random()*10);
+      for(var i=0;i<=factura;i++){
+          var id = randomstring.generate(10);
+          var query = "select dpi from cliente";
+          var response = await pool.query(query);
+          var num = Math.floor(Math.random()*response.rowCount);
+          var dpi = response.rows[num].dpi;
+          var hora = String(faker.date.recent()).substring(16,24);
+          generarFactura(id,dpi,fecha,hora);
+          // query = "insert into factura(id_factura,dpi,fecha,hora) values ($1,$2,$3,$4)"
+          var cantProductos = Math.floor(Math.random()*100);
+          for(var j=0;j<=cantProductos;j++){
+              query = ("select id_producto from producto");
+              var cantidad = Math.floor(Math.random()*15);
+              response2 = await pool.query(query);
+              num = Math.floor(Math.random()*response2.rowCount);
+              var producto = response2.rows[num].id_producto;
+              query = "insert into linea_factura(id_factura,id_producto,cantidadcomprada) values ($1,$2,$3)"
+              response3 = await pool.query(query,[id,producto,cantidad]);
+          }
+          console.log('exito id ingresado'+id);
+      }
+  } catch (error) {
+      console.log("Error"+error);
+  }
+}
