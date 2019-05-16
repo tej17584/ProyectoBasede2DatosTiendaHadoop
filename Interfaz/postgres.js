@@ -4,8 +4,8 @@ const faker = require('faker');
 
 var pool = new Pool({
   user: "postgres",
-  password: "andresumsql",
-  database: "proyectobasededatos"
+  password: "123",
+  database: "proyectodb2"
 });
 
 function generarID() {
@@ -332,5 +332,39 @@ async function randomFactura(fecha){
       }
   } catch (error) {
       console.log("Error"+error);
+  }
+}
+
+//Funcion para consultar factura
+async function ConsultarFacturas() {
+  try {
+    var query = `SELECT factura.id_factura, producto.nombre as NombreProducto,linea_factura.cantidadcomprada,cliente.nombre,factura.fecha
+    FROM factura
+    INNER JOIN linea_factura
+    ON factura.id_factura = linea_factura.id_factura
+    INNER JOIN cliente
+    ON factura.dpi = cliente.dpi
+    INNER JOIN producto
+    ON linea_factura.id_producto = producto.id_producto`;
+    var response = await pool.query(query);
+    var tableInicial = document.getElementById("VentasGeneralTable");
+    console.log(response.rows)
+    for (let index = 0; index < response.rowCount; index++) {
+      const nuevaFilaFactura = `
+          <tbody>
+          <tr>
+              <td>${response.rows[index].id_factura}</td>
+              <td>${response.rows[index].nombreproducto}</td>
+              <td>${response.rows[index].cantidadcomprada}</td>
+              <td>${response.rows[index].nombre}</td>
+              <td>${response.rows[index].fecha}</td>
+          </tr>
+      </tbody>
+                  `;
+      //Colocamos el inner
+      tableInicial.innerHTML += nuevaFilaFactura;
+    }
+  } catch (error) {
+    console.log("No se pudo consultar");
   }
 }
