@@ -67,7 +67,7 @@ async function agregarCliente(dpi, nombre, direccion) {
     if (response.rowCount == 0) {
       var query = "insert into cliente(dpi,nombre,direccion) values ($1,$2,$3)";
       response2 = await pool.query(query, [dpi, nombre, direccion]);
-      alert("Cliente ingresado con exito");
+      // alert("Cliente ingresado con exito");
     }
   } catch (error) {
     alert(
@@ -266,7 +266,6 @@ async function generarFactura(id,dpi,fecha,hora){
         console.log(id,dpi,fecha,hora);
         var query = "insert into factura(id_factura,dpi,fecha,hora) values ($1,$2,$3,$4)";
         var response = await pool.query(query,[id,dpi,fecha,hora]);
-        alert("Producto ingresado con exito");
     } catch (error) {
         alert("Error"+error);
     }
@@ -342,8 +341,9 @@ async function generarClientes(){
           var nombre  = faker.name.findName();
           var direccion = faker.address.streetAddress();
           agregarCliente(dpi,nombre,direccion);
-          alert("cliente agregado con exito"+dpi);
+          // alert("cliente agregado con exito"+dpi);
       }
+      alert("Clientes creados");
   } catch (error) {
       alert("Error"+error);
   }
@@ -375,6 +375,7 @@ async function randomFactura(fecha){
           }
           console.log('exito id ingresado'+id);
       }
+      alert("Ventas creadas");
     }else{
       alert("Debe ingresar la fecha");
     }
