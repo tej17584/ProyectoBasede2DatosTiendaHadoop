@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Simular ventas</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="postgres.js"></script>
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload" onload="combobox()">
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+				<!-- Logo -->
+				<a href="index.html" class="logo">
+					<span class="symbol"><img src="images/addProduct.png" alt="" /></span><span class="title">
+                        Simular Productos</span>
+				</a>
+				<!-- Nav -->
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<<!-- Menu -->
+		<nav id="menu">
+				<h2>Menu</h2>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="VerProducto.html">Ver Productos</a></li>
+					<li><a href="agregarproductos.html">Agregar Producto</a></li>
+					<li><a href="RealizarVenta.html">Realizar Venta</a></li>
+					<li><a href="simularventas.html">Simular ventas</a></li>
+					<li><a href="elements.html">Consultar ventas</a></li>
+					<li><a href="GestionClientes.html">Gestionar Clientes</a></li>
+				</ul>
+			</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<h1>Aqui puede generar desde productos,simular ventas y crear clientes</h1>
+				<h4>En caso quiera agregar ventas, clientes o productos, hagalo acá.</h4>
+				<!-- Footer -->
+				<section>
+						
+					<div class="row gtr-uniform">
+						<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un id" id="idProducto">
+							<!-- <input type="text" class="input100" id="idProducto" value="" placeholder="ID Producto" /> -->
+						</div>
+						<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un Nombre Producto">
+							<input type="text" class="input100" id="nombreproducto" value=""
+								placeholder="Nombre Producto" />
+						</div>
+						<div class="col-6 col-12-xsmall" data-validate="Debe ingresar numero entero">
+							<span class="label-input100">Cantidad </span>
+							<br>
+							<input type="number" class="input100" id="cantidad" placeholder="0" name="cantidad"
+								min="0" />
+						</div>
+						<div class="col-6 col-12-xsmall" data-validate="Debe ingresar numero decimal">
+							<span class="label-input100">Precio Unitario </span>
+							<br>
+							<input type="number" class="input100" id="precio" placeholder="0.0" name="precio" min="0"
+								step="0.1" />
+						</div>
+						<div class="col-6 col-12-xsmall">
+							<span class="label-input100">Marca</span>
+							<select name="marcaProductoSelect" id="marcaProductoSelect">
+								<option value="">--</option>
+
+							</select>
+						</div>
+
+						<div class="col-6 col-12-xsmall">
+							<span class="label-input100">Categoría</span>
+							<select name="categoriaProductoSelect" id="categoriaProductoSelect">
+								<option value="">--</option>
+
+							</select>
+						</div>
+
+
+					</div>
+					<br>
+					<br>
+					<h4>Ingresa datos custom acá. Ingresa un dato custom y luego guardalo, el dato custom se guardará y
+						luego podrás ingresar otro.</h4>
+					<div class="row gtr-uniform">
+						<div class="col-3 col-12-xsmall" data-validate="Debe ingresar nombre para el Dato Custom">
+							<input type="text" class="input100" id="DCNombre" value=""
+								placeholder="Nombre Dato Custom" />
+						</div>
+						<div class="col-3 col-12-xsmall" data-validate="Seleccione un valor del combobox">
+							<select name="DCTipo" id="DCTipo">
+								<option value="">--</option>
+								<option value="Int">Int</option>
+								<option value="Double">Double</option>
+								<option value="String">String</option>
+							</select>
+						</div>
+						<div class="col-3 col-12-xsmall" data-validate="Debe ingresar un valor para el dato Custom">
+							<input type="text" class="input100" id="DCValor" value="" placeholder="Valor Dato Custom" />
+						</div>
+						<div class="col-3 col-12-xsmall" data-validate="Debe de guardarlo">
+							<button class="button small"
+								onclick="AgregarDatoCustom(document.getElementById('prod').value,document.getElementById('DCNombre').value,document.getElementById('DCTipo').value,document.getElementById('DCValor').value)">Guardar
+								Dato </button>
+						</div>
+					</div>
+					<br>
+					<br>
+					<form action="">
+							<div>
+									<button type="submit" onclick="agregarProducto(document.getElementById('prod').value,
+												document.getElementById('nombreproducto').value,document.getElementById('cantidad').value,
+												document.getElementById('precio').value,document.getElementById('marcaProductoSelect').value,
+												document.getElementById('categoriaProductoSelect').value)" class="button icon fa-save">Guardar
+										Producto</button>
+								</div>
+					</form>
+
+				</section>
+			</div>
+		</div>
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<section>
+					<h2>Ponte en contacto</h2>
+					<form method="post" action="#">
+						<div class="fields">
+							<div class="field half">
+								<input type="text" name="name" id="name" placeholder="Nombre" />
+							</div>
+							<div class="field half">
+								<input type="email" name="email" id="email" placeholder="Email" />
+							</div>
+							<div class="field">
+								<textarea name="message" id="message" placeholder="Mensaje"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Enviar" class="primary" /></li>
+						</ul>
+					</form>
+				</section>
+				<section>
+					<h2>Redes sociales y Web</h2>
+					<ul class="icons">
+						<li>
+							<a href="https://twitter.com/uvggt" class="icon style2 fa-twitter"><span
+									class="label">Twitter</span></a>
+						</li>
+						<li>
+							<a href="https://www.facebook.com/universidaddelvallegt/"
+								class="icon style2 fa-facebook"><span class="label">Facebook</span></a>
+						</li>
+						<li>
+							<a href="https://www.instagram.com/uvggt/?hl=es" class="icon style2 fa-instagram"><span
+									class="label">Instagram</span></a>
+						</li>
+						<li>
+							<a href="https://www.uvg.edu.gt/" class="icon style2 fa-dribbble"><span
+									class="label">Dribbble</span></a>
+						</li>
+					</ul>
+				</section>
+				<ul class="copyright">
+					<li>&copy; Proyecto base de Datos por:</li>
+					<li>Alejandro Tejada</li>
+					<li>Diego Sevilla</li>
+					<li>Rodrigo Samayoa</li>
+					<li>Andrés Urizar</li>
+				</ul>
+			</div>
+		</footer>
+
+	</div>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="postgres.js"></script>
+</body>
+
+</html>
