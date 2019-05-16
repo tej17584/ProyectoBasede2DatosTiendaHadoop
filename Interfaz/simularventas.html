@@ -64,19 +64,20 @@
 				<h4>En caso quiera agregar ventas, clientes o productos, hagalo acá.</h4>
 				<!-- Footer -->
 				<section>
-						
+					<form>	
 					<div class="row gtr-uniform">
 						<div class="col-6 col-12-xsmall" data-validate="Debe ingresar una fecha">
                                 <span class="label-input100">Fecha de venta </span>
                                 <br>
-                                <input type="date" class="input100" id="fechasimulada" min="2019-05-01" />
+                                <input type="date" class="input100" id="fechasimulada" min="2019-05-01" required/>
 						</div>
 						<div class="col-6 col-12-xsmall" data-validate="Debe ingresar un Nombre Producto">
                             <br>
 							<button class="button small"
 								onclick="randomFactura(document.getElementById('fechasimulada').value)">Simular Ventas
 								</button>
-						</div>
+                        </div>
+                    </form>
 						<div class="col-6 col-12-xsmall">
                                 <br>
                                 <button class="button small"

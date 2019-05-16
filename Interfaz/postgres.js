@@ -310,6 +310,7 @@ async function generarClientes(){
 }
 async function randomFactura(fecha){
   try {
+    if(fecha!=""){
       factura = Math.floor(Math.random()*10);
       for(var i=0;i<=factura;i++){
           var id = randomstring.generate(10);
@@ -332,6 +333,9 @@ async function randomFactura(fecha){
           }
           console.log('exito id ingresado'+id);
       }
+    }else{
+      console.log("Debe ingresar la fecha");
+    }
   } catch (error) {
       console.log("Error"+error);
   }
