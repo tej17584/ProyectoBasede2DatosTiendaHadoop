@@ -72,6 +72,8 @@ create table if not exists factura
     hora       time        not null
 );
 
+create sequence linea_factura_id_linea_factura_seq;
+
 create table if not exists linea_factura
 (
     -- Only integer types can be auto increment
@@ -84,3 +86,4 @@ create table if not exists linea_factura
             references producto,
     cantidadcomprada integer
 );
+
