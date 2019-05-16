@@ -5,8 +5,8 @@ const faker = require('faker');
 
 var pool = new Pool({
   user: "postgres",
-  password: "andresumsql",
-  database: "proyectobasededatos"
+  password: "123",
+  database: "proyectodb2"
 });
 
 function generarID() {
@@ -271,6 +271,8 @@ async function generarFactura(id,dpi,fecha,hora){
         console.log("Error"+error);
     }
 }
+
+
 //========= Generador de productos aleatorios =================
 async function generarProductos(){
   try {
@@ -291,6 +293,41 @@ async function generarProductos(){
           query = "insert into producto(id_producto,nombre,cantidad,preciounitario,id_marca,id_categoria) values ($1,$2,$3,$4,$5,$6)";
           response2 = await pool.query(query,[id,nombre,cantidad,precio,marca,categoria]);
           console.log("Producto agregado"+nombre);
+          //Creamos un nuevo random para cantidad de datos custom
+          var randomCantidadDC= Math.floor(Math.random()*5);
+          for (var  index = 0; index < randomCantidadDC; index++) {
+            var idDefCustom = randomstring.generate(10);
+            var nombreDefCustom =faker.lorem.words();
+            var randomTipoDef= Math.floor(Math.random()*3);
+            var TipoDefCustomIngreso="";
+            if (randomTipoDef==0) {
+              TipoDefCustomIngreso="Int";
+              query = "insert into definicion_datos_custom (id_def_dato_custom, nombre, tipo) values ($1,$2,$3)";
+              responseRandom = await pool.query(query,[idDefCustom,nombreDefCustom,TipoDefCustomIngreso]);
+              //Ingresamos en la otra tabla
+              query = "insert into datos_custom (id_def_dato_custom, id_producto, valor)  values ($1,$2,$3)";
+
+              responseRandom2 = await pool.query(query,[idDefCustom,id,String(Math.floor(Math.random()*40))]);
+            }
+            else if (randomTipoDef==1) {
+              TipoDefCustomIngreso="Double";
+              query = "insert into definicion_datos_custom (id_def_dato_custom, nombre, tipo) values ($1,$2,$3)";
+              responseRandom = await pool.query(query,[idDefCustom,nombreDefCustom,TipoDefCustomIngreso]);
+              //Ingresamos en la otra tabla
+              query = "insert into datos_custom (id_def_dato_custom, id_producto, valor)  values ($1,$2,$3)";
+
+              responseRandom2 = await pool.query(query,[idDefCustom,id,String(parseFloat(Math.floor(Math.random()*40)))]);
+            }
+            else if (randomTipoDef==2) {
+              TipoDefCustomIngreso="String";
+              query = "insert into definicion_datos_custom (id_def_dato_custom, nombre, tipo) values ($1,$2,$3)";
+              responseRandom = await pool.query(query,[idDefCustom,nombreDefCustom,TipoDefCustomIngreso]);
+              //Ingresamos en la otra tabla
+              query = "insert into datos_custom (id_def_dato_custom, id_producto, valor)  values ($1,$2,$3)";
+
+              responseRandom2 = await pool.query(query,[idDefCustom,id,faker.lorem.words()]);
+            }
+          }
       }
   } catch (error) {
       console.log("Error no se pueden agregar los productos"+error);
