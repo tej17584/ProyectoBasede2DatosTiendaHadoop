@@ -5,7 +5,7 @@ const faker = require('faker');
 
 var pool = new Pool({
   user: "postgres",
-  password: "123",
+  password: "andresumsql",
   database: "proyectodb2"
 });
 
@@ -50,7 +50,7 @@ async function agregarProducto(id, nombre, cantidad, precio, marca, categoria) {
       var query =
         "insert into producto(id_producto,nombre,cantidad,preciounitario,id_marca,id_categoria) values ($1,$2,$3,$4,$5,$6)";
       response2 = await pool.query(query, [id, nombre, cant, prec, marc, cat]);
-      console.log("Producto ingresado con exito");
+      alert("Producto ingresado con exito");
     }
   } catch (error) {
     console.log(
@@ -67,10 +67,10 @@ async function agregarCliente(dpi, nombre, direccion) {
     if (response.rowCount == 0) {
       var query = "insert into cliente(dpi,nombre,direccion) values ($1,$2,$3)";
       response2 = await pool.query(query, [dpi, nombre, direccion]);
-      console.log("Cliente ingresado con exito");
+      alert("Cliente ingresado con exito");
     }
   } catch (error) {
-    console.log(
+    alert(
       "No se logro ingresar el cliente, por el siguiente error" + error
     );
   }
@@ -95,7 +95,7 @@ async function Consultarcliente() {
       tableInicial.innerHTML += nuevaFilacliente;
     }
   } catch (error) {
-    console.log("No se pudo consultar");
+    alert("No se pudo consultar");
   }
 }
 
@@ -121,7 +121,7 @@ async function agregarProductosTabla() {
       div.innerHTML += dato;
     }
   } catch (error) {
-    console.log("No se logro agregar los productos a la tabla");
+    alerta("No se logro agregar los productos a la tabla");
   }
 }
 
@@ -192,7 +192,7 @@ async function AgregarDatoCustom(
         idProducto,
         ValorDatoCustom
       ]);
-      console.log("Dato Custom Ingresado con exito ingresado con exito");
+      alert("Dato Custom Ingresado con exito ingresado con exito");
     }
   } catch (error) {
     console.log("No se pudo agregar.");
@@ -258,7 +258,7 @@ async function LoadTablaDetalleFactura(
     document.getElementById("TotalFactura").value = "";
     document.getElementById("TotalFactura").value = response3.rows[0].sumatoria;
   } catch (error) {
-    console.log("No se logro acumular datos" + error);
+    alert("No se logro acumular datos" + error);
   }
 }
 async function generarFactura(id,dpi,fecha,hora){
@@ -266,9 +266,9 @@ async function generarFactura(id,dpi,fecha,hora){
         console.log(id,dpi,fecha,hora);
         var query = "insert into factura(id_factura,dpi,fecha,hora) values ($1,$2,$3,$4)";
         var response = await pool.query(query,[id,dpi,fecha,hora]);
-        console.log("Producto ingresado con exito");
+        alert("Producto ingresado con exito");
     } catch (error) {
-        console.log("Error"+error);
+        alert("Error"+error);
     }
 }
 
@@ -329,8 +329,9 @@ async function generarProductos(){
             }
           }
       }
+      alert("Productos ingresados con exito");
   } catch (error) {
-      console.log("Error no se pueden agregar los productos"+error);
+      alert("Error no se pueden agregar los productos"+error);
   }
 }
 async function generarClientes(){
@@ -341,10 +342,10 @@ async function generarClientes(){
           var nombre  = faker.name.findName();
           var direccion = faker.address.streetAddress();
           agregarCliente(dpi,nombre,direccion);
-          console.log("cliente agregado con exito"+dpi);
+          alert("cliente agregado con exito"+dpi);
       }
   } catch (error) {
-      console.log("Error"+error);
+      alert("Error"+error);
   }
 }
 
@@ -374,10 +375,10 @@ async function randomFactura(fecha){
           console.log('exito id ingresado'+id);
       }
     }else{
-      console.log("Debe ingresar la fecha");
+      alert("Debe ingresar la fecha");
     }
   } catch (error) {
-      console.log("Error"+error);
+      alert("Error"+error);
   }
 }
 
@@ -411,6 +412,6 @@ async function ConsultarFacturas() {
       tableInicial.innerHTML += nuevaFilaFactura;
     }
   } catch (error) {
-    console.log("No se pudo consultar"+error);
+    alert("No se pudo consultar"+error);
   }
 }
