@@ -5,8 +5,8 @@ const faker = require('faker');
 
 var pool = new Pool({
   user: "postgres",
-  password: "123",
-  database: "proyectodb2"
+  password: "andresumsql",
+  database: "proyectobasededatos"
 });
 
 function generarID() {
@@ -314,7 +314,7 @@ async function generarClientes(){
 async function randomFactura(fecha){
   try {
     if(fecha!=""){
-      factura = Math.floor(Math.random()*10);
+      factura = Math.floor(Math.random()*100);
       for(var i=0;i<=factura;i++){
           var id = randomstring.generate(10);
           var query = "select dpi from cliente";
@@ -324,7 +324,7 @@ async function randomFactura(fecha){
           var hora = String(faker.date.recent()).substring(16,24);
           generarFactura(id,dpi,fecha,hora);
           // query = "insert into factura(id_factura,dpi,fecha,hora) values ($1,$2,$3,$4)"
-          var cantProductos = Math.floor(Math.random()*100);
+          var cantProductos = Math.floor(Math.random()*70);
           for(var j=0;j<=cantProductos;j++){
               query = ("select id_producto from producto");
               var cantidad = Math.floor(Math.random()*15);
@@ -374,6 +374,6 @@ async function ConsultarFacturas() {
       tableInicial.innerHTML += nuevaFilaFactura;
     }
   } catch (error) {
-    console.log("No se pudo consultar");
+    console.log("No se pudo consultar"+error);
   }
 }
