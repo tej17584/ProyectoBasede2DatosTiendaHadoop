@@ -87,22 +87,25 @@ create table if not exists linea_factura
     cantidadcomprada integer
 );
 
-INSERT INTO public.categoria VALUES ('1', 'Congelados', 10);
-INSERT INTO public.categoria VALUES ('2', 'Ropa', 10);
-INSERT INTO public.categoria VALUES ('3', 'Basicos', 10);
-INSERT INTO public.categoria VALUES ('4', 'Comida', 20);
-INSERT INTO public.categoria VALUES ('5', 'Cereales', 20);
-INSERT INTO public.categoria VALUES ('6', 'Otros', 10);
+INSERT INTO public.categoria (idcategoria, nombre, cantidad) VALUES ('1', 'Congelados', 10);
+INSERT INTO public.categoria (idcategoria, nombre, cantidad) VALUES ('2', 'Ropa', 10);
+INSERT INTO public.categoria (idcategoria, nombre, cantidad) VALUES ('3', 'Basicos', 10);
+INSERT INTO public.categoria (idcategoria, nombre, cantidad) VALUES ('4', 'Comida', 20);
+INSERT INTO public.categoria (idcategoria, nombre, cantidad) VALUES ('5', 'Cereales', 20);
+INSERT INTO public.categoria (idcategoria, nombre, cantidad) VALUES ('6', 'Otros', 10);
+INSERT INTO public.categoria (idcategoria, nombre, cantidad) VALUES ('7', 'Jardineria', 20);
+INSERT INTO public.categoria (idcategoria, nombre, cantidad) VALUES ('8', 'Bodas', 20);
+INSERT INTO public.categoria (idcategoria, nombre, cantidad) VALUES ('9 ', 'Escuela', 50);
+INSERT INTO public.categoria (idcategoria, nombre, cantidad) VALUES ('10', 'Tecnologia', 30);
 
 
-
-INSERT INTO public.marca VALUES ('1', 'Adidas');
-INSERT INTO public.marca VALUES ('2', 'Nike');
-INSERT INTO public.marca VALUES ('3', 'Coca-Cola');
-INSERT INTO public.marca VALUES ('4', 'Fritolay');
-INSERT INTO public.marca VALUES ('5', 'Anabelly');
-INSERT INTO public.marca VALUES ('6', 'Hellmans');
-INSERT INTO public.marca VALUES ('7', 'Kellogs');
-INSERT INTO public.marca VALUES ('8', 'Polo');
-INSERT INTO public.marca VALUES ('9', 'Dolce');
-INSERT INTO public.marca VALUES ('10', 'GeneralElectric');
+INSERT INTO public.marca (idmarca, nombre) VALUES ('1', 'Adidas');
+INSERT INTO public.marca (idmarca, nombre) VALUES ('2', 'Nike');
+INSERT INTO public.marca (idmarca, nombre) VALUES ('3', 'Coca-Cola');
+INSERT INTO public.marca (idmarca, nombre) VALUES ('4', 'Fritolay');
+INSERT INTO public.marca (idmarca, nombre) VALUES ('5', 'Anabelly');
+INSERT INTO public.marca (idmarca, nombre) VALUES ('6', 'Hellmans');
+INSERT INTO public.marca (idmarca, nombre) VALUES ('7', 'Kellogs');
+INSERT INTO public.marca (idmarca, nombre) VALUES ('8', 'Polo');
+INSERT INTO public.marca (idmarca, nombre) VALUES ('9', 'Dolce');
+INSERT INTO public.marca (idmarca, nombre) VALUES ('10', 'GeneralElectric');

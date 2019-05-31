@@ -5,7 +5,7 @@ const faker = require('faker');
 
 var pool = new Pool({
   user: "postgres",
-  password: "andresumsql",
+  password: "123",
   database: "proyectodb2"
 });
 
@@ -275,7 +275,7 @@ async function generarFactura(id,dpi,fecha,hora){
 //========= Generador de productos aleatorios =================
 async function generarProductos(){
   try {
-      productos = Math.floor(Math.random()*100);
+      productos =150;
       for(var i=0;i<=productos;i++){
           var nombre = faker.lorem.words();
           var id = randomstring.generate(10);
@@ -335,7 +335,7 @@ async function generarProductos(){
 }
 async function generarClientes(){
   try {
-      clientes = Math.floor(Math.random()*50);
+      clientes = 150;
       for(var i=0;i<=clientes;i++){
           var dpi =  faker.random.number();
           var nombre  = faker.name.findName();
@@ -352,8 +352,8 @@ async function generarClientes(){
 async function randomFactura(fecha){
   try {
     if(fecha!=""){
-      factura = Math.floor(Math.random()*100);
-      console.log(factura);
+      factura = 1999;
+     
       for(var i=0;i<factura;i++){
           var id = randomstring.generate(10);
           var query = "select dpi from cliente";
@@ -363,7 +363,7 @@ async function randomFactura(fecha){
           var hora = String(faker.date.recent()).substring(16,24);
           generarFactura(id,dpi,fecha,hora);
           // query = "insert into factura(id_factura,dpi,fecha,hora) values ($1,$2,$3,$4)"
-          var cantProductos = Math.floor(Math.random()*50);
+          var cantProductos = Math.floor(Math.random()*30);
           for(var j=0;j<=cantProductos;j++){
               query = ("select id_producto from producto");
               var cantidad = Math.floor(Math.random()*15);
@@ -373,7 +373,7 @@ async function randomFactura(fecha){
               query = "insert into linea_factura(id_factura,id_producto,cantidadcomprada) values ($1,$2,$3)";
               response3 = await pool.query(query,[id,producto,cantidad]);
           }
-          console.log('exito id ingresado'+id);
+          
       }
       alert("Ventas creadas");
     }else{
