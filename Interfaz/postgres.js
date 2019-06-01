@@ -5,7 +5,7 @@ const faker = require('faker');
 
 var pool = new Pool({
   user: "postgres",
-  password: "123",
+  password: "andresumsql",
   database: "proyectodb2"
 });
 
